@@ -3,22 +3,13 @@
 
   .navigation-container {
     width: 100%;
-    height: 80px;
+    height: 143px;
     position: fixed;
+    z-index: 10;
+    background-color: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 10;
-    background-color: transparent;
-
-    .logo {
-      background-image: url(../../../assets/logo-white.png);
-      background-position: left;
-      background-size: cover;
-      width: 300px;
-      height: 100%;
-      cursor: pointer;
-    }
 
     &.colour-change {
       background-color: #ffffff;
@@ -35,18 +26,50 @@
     div {
       color: white;
 
-      &.navigation {
-        display: flex;
-        justify-content: space-between;
+      &.logo {
+        background-image: url(../../../assets/logo-white.png);
+        background-position: left;
+        background-size: cover;
+        width: 228px;
+        height: 100%;
+        cursor: pointer;
       }
 
-      span {
-        padding: 4vh;
-        cursor: pointer;
-        font-size: calc(5px + 2vmin);
+      &.navigation {
+        display: inline-flex;
+        max-width: 835px;
+        width: 100%;
 
-        &:last-child {
-          padding-right: 10vh;
+        ul {
+          display: flex;
+          list-style: none;
+          justify-content: space-around;
+          width: 100%;
+
+          li {
+            font-size: calc(5px + 2vmin);
+            cursor: pointer;
+          }
+        }
+
+        &.mobile {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .navbar {
+    .navigation-container {
+      .navigation {
+        &.desktop {
+          display: none;
+        }
+
+        &.mobile {
+          display: block;
         }
       }
     }

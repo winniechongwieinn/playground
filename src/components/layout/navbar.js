@@ -5,6 +5,7 @@ import './scss/navbar.scss';
 
 const Navbar = () => {
     const [scrollPosition, setScrollPosition] = useState(null);
+    const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
     useEffect(() => {
         window.addEventListener('scroll', updateScroll);
@@ -18,22 +19,23 @@ const Navbar = () => {
         scroll.scrollToTop();
     };
 
+    const toggleHamburger = () => {
+        setHamburgerOpen(!hamburgerOpen);
+    };
+
     return <div className="navbar">
         <div className={scrollPosition > 75 ? "navigation-container colour-change" : "navigation-container"}>
             <div className="logo" onClick={scrollHome}/>
-            <div className="navigation">
-                <span>
-                    <Link to="about" spy={true} smooth={true}>About</Link>
-                </span>
-                <span>
-                    <Link to="resume" spy={true} smooth={true}>Resume</Link>
-                </span>
-                <span>
-                    <Link to="portfolio" spy={true} smooth={true}>Portfolio</Link>
-                </span>
-                <span>
-                    <Link to="contact" spy={true} smooth={true}>Contact</Link>
-                </span>
+            <div className="navigation desktop">
+                <ul>
+                    <li><Link to="about" spy={true} smooth={true}>About</Link></li>
+                    <li><Link to="resume" spy={true} smooth={true}>Resume</Link></li>
+                    <li><Link to="portfolio" spy={true} smooth={true}>Portfolio</Link></li>
+                    <li><Link to="contact" spy={true} smooth={true}>Contact</Link></li>
+                </ul>
+            </div>
+            <div className="navigation mobile">
+
             </div>
         </div>
     </div>
