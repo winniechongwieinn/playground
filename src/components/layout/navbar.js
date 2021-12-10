@@ -5,7 +5,6 @@ import './scss/navbar.scss';
 
 const Navbar = () => {
     const [scrollPosition, setScrollPosition] = useState(null);
-    const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
     useEffect(() => {
         window.addEventListener('scroll', updateScroll);
@@ -17,10 +16,6 @@ const Navbar = () => {
 
     const scrollHome = () => {
         scroll.scrollToTop();
-    };
-
-    const toggleHamburger = () => {
-        setHamburgerOpen(!hamburgerOpen);
     };
 
     return <div className="navbar">
