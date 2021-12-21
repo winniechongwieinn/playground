@@ -27,7 +27,7 @@ export const ContactForm = () => {
         alert(result.status);
     };
     return (
-        <form className="contact-form" name="contact-form" data-netlify="true" onSubmit={handleSubmit} >
+        <form className="contact-form" name="contact-form" netlify data-netlify="true" onSubmit={handleSubmit} >
             <div>
                 <label htmlFor="firstname">First Name<span>*</span></label>
                 <input type="text" id="firstname" required />
