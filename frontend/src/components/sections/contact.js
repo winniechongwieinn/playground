@@ -1,10 +1,12 @@
 import React from 'react';
+import { ContactForm } from '../common/contact-form';
 
 import './scss/contact.scss';
 
 const Contact = () => {
     return <div id="contact">
-        <div>Work in Progress</div>
+        <h1>Say Hi!</h1>
+        <ContactForm />
     </div>
 }
 

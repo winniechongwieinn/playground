@@ -1,0 +1,40 @@
+.contact-form {
+  width: 30%;
+
+  div {
+    label {
+      span {
+        color: red;
+      }
+    }
+    input, textarea {
+      font-family: monospace;
+      display: block;
+      margin: 8px 0 16px;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    textarea {
+      height: 60px;
+    }
+  }
+
+  button {
+    margin-top: 16px;
+    font-family: monospace;
+    text-transform: uppercase;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .contact-form {
+    width: 80%;
+  }
+}
