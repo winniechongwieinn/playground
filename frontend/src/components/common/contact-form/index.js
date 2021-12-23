@@ -5,6 +5,10 @@ import './index.scss';
 export const ContactForm = () => {
     const [status, setStatus] = useState("Submit");
 
+    const encodeData = (data) => {
+        return Object.keys(data).map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])).join("&");
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setStatus("Sending...");
@@ -18,16 +22,17 @@ export const ContactForm = () => {
         let response = await fetch("/contact", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json;charset=utf-8",
+                "Content-Type": "application/x-www-form-urlencoded",
             },
-            body: JSON.stringify(details),
+            body: encodeData({"form-name": e.target.getAttribute("name"), ...details}),
         });
         setStatus("Submit");
         let result = await response.json();
         alert(result.status);
     };
     return (
-        <form method="post" className="contact-form" name="contact-form" data-netlify="true" onSubmit={handleSubmit} >
+        <form method="post" className="contact-form" name="contactForm" data-netlify="true" onSubmit={handleSubmit} >
+            <input type="hidden" name="form-name" value="contactForm" />
             <div>
                 <label htmlFor="firstname">First Name<span>*</span></label>
                 <input type="text" id="firstname" required />
