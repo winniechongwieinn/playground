@@ -24,7 +24,7 @@ export const ContactForm = () => {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
             },
-            body: encodeData(details),
+            body: encodeData({ "form-name": "contactForm", ...details }),
         });
         setStatus("Submit");
         let result = await response.json();
@@ -32,7 +32,6 @@ export const ContactForm = () => {
     };
     return (
         <form method="post" className="contact-form" name="contactForm" data-netlify="true" onSubmit={handleSubmit} >
-            <input type="hidden" name="form-name" value="contactForm" />
             <div>
                 <label htmlFor="firstname">First Name<span>*</span></label>
                 <input type="text" id="firstname" required />
