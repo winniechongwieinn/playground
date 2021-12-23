@@ -26,15 +26,14 @@ export const ContactForm = () => {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
             },
-            body: encode(details),
+            body: encode({ "form-name": "contact", ...details }),
         });
         setStatus("Submit");
         let result = await response.json();
         alert(result.status);
     };
     return (
-        <form className="contact-form" onSubmit={handleSubmit} >
-            <input type="hidden" name="form-name" value="contactForm" />
+        <form className="contact-form" onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="firstname">First Name<span>*</span></label>
                 <input type="text" id="firstname" name="firstname" required />
