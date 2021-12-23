@@ -24,7 +24,7 @@ export const ContactForm = () => {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
             },
-            body: encodeData({"form-name": e.target.getAttribute("name"), ...details}),
+            body: encodeData(details),
         });
         setStatus("Submit");
         let result = await response.json();
